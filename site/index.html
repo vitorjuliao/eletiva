@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+<head>
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde do Corpo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 2em;
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            color: #4caf50; /* Verde saudável */
+            margin-bottom: 1em;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+        }
+        button {
+            font-size: 1.1em;
+            padding: 0.75em 1.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            background-color: #4caf50; /* Verde saudável */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #45a049; /* Verde um pouco mais escuro */
+            transform: translateY(-2px);
+        }
+        button:active {
+            background-color: #388e3c; /* Verde ainda mais escuro */
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Verificação de Saúde do Corpo</h1>
+        <div class="button-container">
+            <button id="pizza-button">Pizza</button>
+            <button id="salad-button">Salada</button>
+        </div>
+    </div>
+    <script>
+        // Função para abrir uma nova guia com uma mensagem
+        function openMessage(message) {
+            const newWindow = window.open('', '_blank');
+            newWindow.document.write(`
+                <!DOCTYPE html>
+                <html lang="pt-BR">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Resultado</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            text-align: center;
+                            margin: 0;
+                            padding: 2em;
+                            background-color: #f5f5f5;
+                            color: #333;
+                        }
+                        h1 {
+                            color: #4caf50; /* Verde saudável */
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1>${message}</h1>
+                </body>
+                </html>
+            `);
+            newWindow.document.close();
+        }
+
+        // Adiciona eventos aos botões
+        document.getElementById('pizza-button').addEventListener('click', () => {
+            openMessage('Seu corpo não está saudável.');
+        });
+
+        document.getElementById('salad-button').addEventListener('click', () => {
+            openMessage('Seu corpo está saudável.');
+        });
+    </script>
+</body>
+</html>
